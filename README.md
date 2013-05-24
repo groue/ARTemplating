@@ -13,7 +13,7 @@ The JavaScript implementation is quicker in this scenario.
 Rendering the example from http://mustache.github.io/#demo on an iPhone 3GS running iOS 6.0
 
 - JavaScript in WebView: 1000 renderings took 2.217 seconds
-- GRMustache in native view controller: 1000 renderings tool 12.563 seconds
+- GRMustache in native view controller: 1000 renderings took 12.563 seconds
 
 In both cases the template was pre-compiled.
 
