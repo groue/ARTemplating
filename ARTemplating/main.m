@@ -2,7 +2,7 @@
 //  main.m
 //  ARTemplating
 //
-//  Created by service.sbd on 23/05/2013.
+//  Created by Alex Reid on 23/05/2013.
 //
 //
 

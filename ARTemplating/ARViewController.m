@@ -2,7 +2,7 @@
 //  ARViewController.m
 //  ARTemplating
 //
-//  Created by service.sbd on 23/05/2013.
+//  Created by Alex Reid on 23/05/2013.
 //
 //
 
@@ -14,16 +14,10 @@
 
 @implementation ARViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"index" ofType:@"html" inDirectory:@"web"]];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
 }
 
 @end

@@ -18,6 +18,13 @@
 		28FD2C02174E5DB500B09346 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28FD2C01174E5DB500B09346 /* Default-568h@2x.png */; };
 		28FD2C05174E5DB500B09346 /* ARViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FD2C04174E5DB500B09346 /* ARViewController.m */; };
 		28FD2C08174E5DB500B09346 /* ARViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28FD2C06174E5DB500B09346 /* ARViewController.xib */; };
+		28FD2C10174E5E6000B09346 /* web in Resources */ = {isa = PBXBuildFile; fileRef = 28FD2C0F174E5E6000B09346 /* web */; };
+		28FD2C12174E5E7C00B09346 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 28FD2C11174E5E7C00B09346 /* index.html */; };
+		28FD2C14174E5ED800B09346 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 28FD2C13174E5ED800B09346 /* style.css */; };
+		28FD2C16174E5F7900B09346 /* mustache.js in Sources */ = {isa = PBXBuildFile; fileRef = 28FD2C15174E5F7900B09346 /* mustache.js */; };
+		28FD2C20174E686700B09346 /* libGRMustache6-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD2C1F174E686700B09346 /* libGRMustache6-iOS.a */; };
+		28FD2C25174E68F600B09346 /* ARNativeTemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FD2C23174E68F600B09346 /* ARNativeTemplateViewController.m */; };
+		28FD2C26174E68F600B09346 /* ARNativeTemplateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28FD2C24174E68F600B09346 /* ARNativeTemplateViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +44,29 @@
 		28FD2C03174E5DB500B09346 /* ARViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARViewController.h; sourceTree = "<group>"; };
 		28FD2C04174E5DB500B09346 /* ARViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARViewController.m; sourceTree = "<group>"; };
 		28FD2C07174E5DB500B09346 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ARViewController.xib; sourceTree = "<group>"; };
+		28FD2C0F174E5E6000B09346 /* web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = web; sourceTree = "<group>"; };
+		28FD2C11174E5E7C00B09346 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = ARTemplating/web/index.html; sourceTree = "<group>"; };
+		28FD2C13174E5ED800B09346 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = style.css; path = ARTemplating/web/style.css; sourceTree = "<group>"; };
+		28FD2C15174E5F7900B09346 /* mustache.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = mustache.js; path = ARTemplating/web/mustache.js; sourceTree = "<group>"; };
+		28FD2C1F174E686700B09346 /* libGRMustache6-iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGRMustache6-iOS.a"; sourceTree = "<group>"; };
+		28FD2C22174E68F600B09346 /* ARNativeTemplateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARNativeTemplateViewController.h; sourceTree = "<group>"; };
+		28FD2C23174E68F600B09346 /* ARNativeTemplateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARNativeTemplateViewController.m; sourceTree = "<group>"; };
+		28FD2C24174E68F600B09346 /* ARNativeTemplateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARNativeTemplateViewController.xib; sourceTree = "<group>"; };
+		28FD2C76174E6D6700B09346 /* GRMustache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustache.h; sourceTree = "<group>"; };
+		28FD2C77174E6D6700B09346 /* GRMustacheAvailabilityMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheAvailabilityMacros.h; sourceTree = "<group>"; };
+		28FD2C78174E6D6700B09346 /* GRMustacheConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheConfiguration.h; sourceTree = "<group>"; };
+		28FD2C79174E6D6700B09346 /* GRMustacheContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheContext.h; sourceTree = "<group>"; };
+		28FD2C7A174E6D6700B09346 /* GRMustacheError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheError.h; sourceTree = "<group>"; };
+		28FD2C7B174E6D6700B09346 /* GRMustacheFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheFilter.h; sourceTree = "<group>"; };
+		28FD2C7C174E6D6700B09346 /* GRMustacheLocalizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheLocalizer.h; sourceTree = "<group>"; };
+		28FD2C7D174E6D6700B09346 /* GRMustacheRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheRendering.h; sourceTree = "<group>"; };
+		28FD2C7E174E6D6700B09346 /* GRMustacheTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheTag.h; sourceTree = "<group>"; };
+		28FD2C7F174E6D6700B09346 /* GRMustacheTagDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheTagDelegate.h; sourceTree = "<group>"; };
+		28FD2C80174E6D6700B09346 /* GRMustacheTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheTemplate.h; sourceTree = "<group>"; };
+		28FD2C81174E6D6700B09346 /* GRMustacheTemplateRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheTemplateRepository.h; sourceTree = "<group>"; };
+		28FD2C82174E6D6700B09346 /* GRMustacheVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheVersion.h; sourceTree = "<group>"; };
+		28FD2C83174E6D6700B09346 /* NSFormatter+GRMustache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFormatter+GRMustache.h"; sourceTree = "<group>"; };
+		28FD2C84174E6D6700B09346 /* NSValueTransformer+GRMustache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValueTransformer+GRMustache.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +77,7 @@
 				28FD2BEC174E5DB500B09346 /* UIKit.framework in Frameworks */,
 				28FD2BEE174E5DB500B09346 /* Foundation.framework in Frameworks */,
 				28FD2BF0174E5DB500B09346 /* CoreGraphics.framework in Frameworks */,
+				28FD2C20174E686700B09346 /* libGRMustache6-iOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +87,10 @@
 		28FD2BDC174E5DB500B09346 = {
 			isa = PBXGroup;
 			children = (
+				28FD2C1F174E686700B09346 /* libGRMustache6-iOS.a */,
+				28FD2C15174E5F7900B09346 /* mustache.js */,
+				28FD2C13174E5ED800B09346 /* style.css */,
+				28FD2C11174E5E7C00B09346 /* index.html */,
 				28FD2BF1174E5DB500B09346 /* ARTemplating */,
 				28FD2BEA174E5DB500B09346 /* Frameworks */,
 				28FD2BE8174E5DB500B09346 /* Products */,
@@ -83,12 +118,17 @@
 		28FD2BF1174E5DB500B09346 /* ARTemplating */ = {
 			isa = PBXGroup;
 			children = (
+				28FD2C75174E6D6700B09346 /* GRMustache */,
+				28FD2C0E174E5E0600B09346 /* Resources */,
 				28FD2BFA174E5DB500B09346 /* ARAppDelegate.h */,
 				28FD2BFB174E5DB500B09346 /* ARAppDelegate.m */,
 				28FD2C03174E5DB500B09346 /* ARViewController.h */,
 				28FD2C04174E5DB500B09346 /* ARViewController.m */,
 				28FD2C06174E5DB500B09346 /* ARViewController.xib */,
 				28FD2BF2174E5DB500B09346 /* Supporting Files */,
+				28FD2C22174E68F600B09346 /* ARNativeTemplateViewController.h */,
+				28FD2C23174E68F600B09346 /* ARNativeTemplateViewController.m */,
+				28FD2C24174E68F600B09346 /* ARNativeTemplateViewController.xib */,
 			);
 			path = ARTemplating;
 			sourceTree = "<group>";
@@ -105,6 +145,37 @@
 				28FD2C01174E5DB500B09346 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		28FD2C0E174E5E0600B09346 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				28FD2C0F174E5E6000B09346 /* web */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		28FD2C75174E6D6700B09346 /* GRMustache */ = {
+			isa = PBXGroup;
+			children = (
+				28FD2C76174E6D6700B09346 /* GRMustache.h */,
+				28FD2C77174E6D6700B09346 /* GRMustacheAvailabilityMacros.h */,
+				28FD2C78174E6D6700B09346 /* GRMustacheConfiguration.h */,
+				28FD2C79174E6D6700B09346 /* GRMustacheContext.h */,
+				28FD2C7A174E6D6700B09346 /* GRMustacheError.h */,
+				28FD2C7B174E6D6700B09346 /* GRMustacheFilter.h */,
+				28FD2C7C174E6D6700B09346 /* GRMustacheLocalizer.h */,
+				28FD2C7D174E6D6700B09346 /* GRMustacheRendering.h */,
+				28FD2C7E174E6D6700B09346 /* GRMustacheTag.h */,
+				28FD2C7F174E6D6700B09346 /* GRMustacheTagDelegate.h */,
+				28FD2C80174E6D6700B09346 /* GRMustacheTemplate.h */,
+				28FD2C81174E6D6700B09346 /* GRMustacheTemplateRepository.h */,
+				28FD2C82174E6D6700B09346 /* GRMustacheVersion.h */,
+				28FD2C83174E6D6700B09346 /* NSFormatter+GRMustache.h */,
+				28FD2C84174E6D6700B09346 /* NSValueTransformer+GRMustache.h */,
+			);
+			name = GRMustache;
+			path = include;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +234,10 @@
 				28FD2C00174E5DB500B09346 /* Default@2x.png in Resources */,
 				28FD2C02174E5DB500B09346 /* Default-568h@2x.png in Resources */,
 				28FD2C08174E5DB500B09346 /* ARViewController.xib in Resources */,
+				28FD2C10174E5E6000B09346 /* web in Resources */,
+				28FD2C12174E5E7C00B09346 /* index.html in Resources */,
+				28FD2C14174E5ED800B09346 /* style.css in Resources */,
+				28FD2C26174E68F600B09346 /* ARNativeTemplateViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +251,8 @@
 				28FD2BF8174E5DB500B09346 /* main.m in Sources */,
 				28FD2BFC174E5DB500B09346 /* ARAppDelegate.m in Sources */,
 				28FD2C05174E5DB500B09346 /* ARViewController.m in Sources */,
+				28FD2C16174E5F7900B09346 /* mustache.js in Sources */,
+				28FD2C25174E68F600B09346 /* ARNativeTemplateViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +301,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -245,6 +323,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -256,6 +335,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ARTemplating/ARTemplating-Prefix.pch";
 				INFOPLIST_FILE = "ARTemplating/ARTemplating-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -267,6 +350,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ARTemplating/ARTemplating-Prefix.pch";
 				INFOPLIST_FILE = "ARTemplating/ARTemplating-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -291,6 +378,7 @@
 				28FD2C0D174E5DB500B09346 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,0 +1,10 @@
+body {
+    font-family: sans-serif;
+    fon-size:87%;
+}
+
+input[type=button] {
+    width:100%;
+    font-size:120%;
+    margin-bottom:2em;
+}

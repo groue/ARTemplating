@@ -1,0 +1,80 @@
+<html>
+<head>
+    <title>JSMustache</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+<input type="button" value="render template" onClick="render()"/>
+
+<div id="diag">
+</div>
+
+<script src="mustache.js"></script>
+
+<script>
+    var tmpl = Mustache.compile("<h1>{{header}}</h1>\
+                                {{#bug}}\
+                                {{/bug}}\
+                                {{#items}}\
+                                {{#first}}\
+                                <li><strong>{{name}}</strong></li>\
+                                {{/first}}\
+                                {{#link}}\
+                                <li><a href=\"{{url}}\">{{name}}</a></li>\
+                                {{/link}}\
+                                {{/items}}\
+                                {{#empty}}\
+                                <p>The list is empty.</p>\
+                                {{/empty}}");
+    
+    var RENDERS = 10000;
+
+    function render() {
+        var output = undefined;
+        var start = new Date().getTime();
+        var view = {
+            "header": "Colors",
+            "items": [
+                      {"name": "red", "first": true, "url": "#Red"},
+                      {"name": "green", "link": true, "url": "#Green"},
+                      {"name": "blue", "link": true, "url": "#Blue"},
+                      {"name": "red", "first": true, "url": "#Red"},
+                      {"name": "green", "link": true, "url": "#Green"},
+                      {"name": "blue", "link": true, "url": "#Blue"},
+                      {"name": "red", "first": true, "url": "#Red"},
+                      {"name": "green", "link": true, "url": "#Green"},
+                      {"name": "blue", "link": true, "url": "#Blue"},
+                      {"name": "red", "first": true, "url": "#Red"},
+                      {"name": "green", "link": true, "url": "#Green"},
+                      {"name": "blue", "link": true, "url": "#Blue"},
+                      {"name": "red", "first": true, "url": "#Red"},
+                      {"name": "green", "link": true, "url": "#Green"},
+                      {"name": "blue", "link": true, "url": "#Blue"},
+                      {"name": "red", "first": true, "url": "#Red"},
+                      {"name": "green", "link": true, "url": "#Green"},
+                      {"name": "blue", "link": true, "url": "#Blue"}
+                      ],
+            "empty": false
+        }
+
+
+        function r(i) {
+            output = tmpl(view);
+        }
+
+
+        for(var i=0;i<=RENDERS;i++) {
+            r(i);
+        }
+
+        var end = new Date().getTime();
+        var time = (end - start)/1000;
+
+        document.getElementById("diag").innerHTML = RENDERS+" renderings took "+time;
+    }
+</script>
+
+</body>
+</html>
