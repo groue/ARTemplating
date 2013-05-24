@@ -32,8 +32,6 @@
     var RENDERS = 10000;
 
     function render() {
-        var output = undefined;
-        var start = new Date().getTime();
         var view = {
             "header": "Colors",
             "items": [
@@ -64,7 +62,9 @@
             output = tmpl(view);
         }
 
-
+        var output = undefined;
+        var start = new Date().getTime();
+        
         for(var i=0;i<=RENDERS;i++) {
             r(i);
         }
