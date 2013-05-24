@@ -8,7 +8,14 @@ If it did, the resulting HTML could be injected into a web view.
 If it didn't, the render and display would be better done entirely within the webview.
 
 The test is simply to repeatedly render a fairly trivial template. This isn't a real world test. 
-The JavaScript implementation is quicker in this scenario on both the iOS Simulator and a worst-case-scenario iPhone 3GS.
+The JavaScript implementation is quicker in this scenario.
+
+Rendering the example from http://mustache.github.io/#demo on an iPhone 3GS running iOS 6.0
+
+- JavaScript in WebView: 1000 renderings took 2.217 seconds
+- GRMustache in native view controller: 1000 renderings tool 12.563 seconds
+
+In both cases the template was pre-compiled.
 
 In no way does this mean that the native library is bad - it's fantastic. The performance is still great and the difference
 probably not noticable to the user when rendering a single template. 
