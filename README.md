@@ -29,3 +29,18 @@ having template rendering running in the background using native code may still 
 
 Obviously the biggest advantage of the native library is the ability to feed templates your Objective-C models 
 and data structures.
+
+-- [Alex Reid](https://github.com/AlexJReid)
+
+Updating to GRMustache v6.7 vastly improved the native performances.
+
+Rendering the example from http://mustache.github.io/#demo on iPhone Simulator iOS 6.1
+
+- JavaScript in WebView: 10000 renderings takes about 0.6 second
+- GRMustache in native view controller: 1000 renderings takes abount 2 seconds
+
+OK, native engine is still behind JS engine.
+
+It also provides services unknown to most Mustache implementations. Check out the [FAQ](https://github.com/groue/GRMustache#faq).
+
+-- [Gwendal Roué](https://github.com/groue)
