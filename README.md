@@ -37,7 +37,7 @@ Updating to GRMustache v6.7 vastly improved the native performances.
 Rendering the example from http://mustache.github.io/#demo on iPhone Simulator iOS 6.1
 
 - JavaScript in WebView: 10000 renderings takes about 0.6 second
-- GRMustache in native view controller: 1000 renderings takes abount 2 seconds
+- GRMustache in native view controller: 10000 renderings takes about 2 seconds
 
 OK, native engine is still behind JS engine.
 
