@@ -49,10 +49,9 @@
  */
 @interface GRMustacheContext : NSObject {
 @private
-    NSDictionary *_depthsForAncestors;
     GRMustacheContext *_contextParent;
-    NSMutableDictionary *_mutableContextObject;
     id _contextObject;
+    NSMutableDictionary *_managedPropertiesStore;
     GRMustacheContext *_protectedContextParent;
     id _protectedContextObject;
     GRMustacheContext *_hiddenContextParent;
@@ -61,7 +60,7 @@
     id<GRMustacheTagDelegate> _tagDelegate;
     GRMustacheContext *_templateOverrideParent;
     id _templateOverride;
-    NSString *_nonManagedKey;
+    NSDictionary *_depthsForAncestors;
 }
 
 
@@ -198,7 +197,7 @@
  * the values defined by objects already contained in the context stack. Keys
  * unknown to _object_ will be looked up deeper in the context stack.
  *
- *     context = [GRMustacheContext contextWithProtectedObject:@{ @"a": @"ignored", @"b": @"foo" }];
+ *     context = [GRMustacheContext contextWithObject:@{ @"a": @"ignored", @"b": @"foo" }];
  *     context = [context contextByAddingObject:@{ @"a": @"bar" }];
  *
  *     // `a` is overriden
