@@ -18,7 +18,7 @@
 
 @implementation ARNativeTemplateViewController
 
-const int RENDERS = 10000;
+const int RENDERS = 1000;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
