@@ -1,6 +1,6 @@
 // The MIT License
 //
-// Copyright (c) 2013 Gwendal Roué
+// Copyright (c) 2014 Gwendal Roué
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -30,9 +30,10 @@
  * A category on NSFormatter that allows them to be directly used in GRMustache
  * templates.
  *
- * This applies to all NSFormatter subclasses such as NSDateFormatter,
- * NSNumberFormatter, and your custom subclasses that provide their custom
- * implementation of the `stringForObjectValue:` method.
+ * **Companion guide:** https://github.com/groue/GRMustache/blob/master/Guides/NSFormatter.md
+ *
+ * All NSFormatter subclasses such as NSDateFormatter, NSNumberFormatter, and
+ * your custom subclasses are concerned.
  *
  * ## Filter facet
  *
@@ -58,8 +59,6 @@
  *         {{ value2 }}      {{! format applies }}
  *       {{/ condition }}
  *     {{/ percent }}
- *
- * **Companion guide:** https://github.com/groue/GRMustache/blob/master/Guides/NSFormatter.md
  *
  * @since v6.4
  */

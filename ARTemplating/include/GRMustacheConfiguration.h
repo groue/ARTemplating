@@ -22,39 +22,15 @@
 
 #import <Foundation/Foundation.h>
 #import "GRMustacheAvailabilityMacros.h"
+#import "GRMustacheContentType.h"
 
 @class GRMustacheContext;
-
-/**
- * The content type of strings rendered by templates.
- *
- * @see GRMustacheConfiguration
- * @see GRMustacheTemplateRepository
- *
- * @since v6.2
- */
-typedef NS_ENUM(NSUInteger, GRMustacheContentType) {
-    /**
-     * The `GRMustacheContentTypeHTML` content type has templates render HTML.
-     * HTML template escape the input of variable tags such as `{{name}}`. Use
-     * triple mustache tags `{{{content}}}` in order to avoid the HTML-escaping.
-     *
-     * @since v6.2
-     */
-    GRMustacheContentTypeHTML AVAILABLE_GRMUSTACHE_VERSION_6_2_AND_LATER,
-
-    /**
-     * The `GRMustacheContentTypeText` content type has templates render text.
-     * They do not HTML-escape their input: `{{name}}` and `{{{name}}}` have
-     * identical renderings.
-     *
-     * @since v6.2
-     */
-    GRMustacheContentTypeText AVAILABLE_GRMUSTACHE_VERSION_6_2_AND_LATER,
-} AVAILABLE_GRMUSTACHE_VERSION_6_2_AND_LATER;
+@protocol GRMustacheTagDelegate;
 
 /**
  * A GRMustacheConfiguration instance configures GRMustache rendering.
+ *
+ * **Companion guide:** https://github.com/groue/GRMustache/blob/master/Guides/configuration.md
  *
  * The default configuration [GRMustacheConfiguration defaultConfiguration]
  * applies to all GRMustache rendering by default:
@@ -88,8 +64,6 @@ typedef NS_ENUM(NSUInteger, GRMustacheContentType) {
  * The `tagStartDelimiter` and `tagEndDelimiter` options can also be specified
  * at the template level, using a "Set Delimiters tag": see the documentation of
  * these properties.
- *
- * **Companion guide:** https://github.com/groue/GRMustache/blob/master/Guides/configuration.md
  *
  * @see GRMustacheTemplateRepository
  *
@@ -155,6 +129,91 @@ typedef NS_ENUM(NSUInteger, GRMustacheContentType) {
  * @since v6.4
  */
 @property (nonatomic, retain) GRMustacheContext *baseContext AVAILABLE_GRMUSTACHE_VERSION_6_4_AND_LATER;
+
+/**
+ * Extends the base context of the receiver with the provided object, making its
+ * keys available for all renderings.
+ *
+ * For example:
+ *
+ *     GRMustacheConfiguration *configuration = [GRMustacheConfiguration defaultConfiguration];
+ *
+ *     // Have the `name` key defined for all template renderings:
+ *     id object = @{ @"name": @"Arthur" };
+ *     [configuration importObject:object];
+ *
+ *     // Renders "Arthur"
+ *     [GRMustacheTemplate renderObject:nil fromString:@"{{name}}" error:NULL];
+ *
+ * Keys defined by _object_ can be overriden by other objects that will
+ * eventually enter the context stack:
+ *
+ *     // Renders "Billy", not "Arthur"
+ *     [GRMustacheTemplate renderObject:nil:@{ @"name": @"Billy" } fromString:@"{{name}}" error:NULL];
+ *
+ * This method is a shortcut. It is equivalent to the following line of code:
+ *
+ *     configuration.baseContext = [configuration.baseContext contextByAddingObject:object];
+ *
+ * @param object  An object
+ *
+ * @see baseContext
+ * @see extendBaseContextWithProtectedObject:
+ * @see extendBaseContextWithTagDelegate:
+ *
+ * @since v6.8
+ */
+- (void)extendBaseContextWithObject:(id)object AVAILABLE_GRMUSTACHE_VERSION_6_8_AND_LATER;
+
+/**
+ * Extends the base context of the receiver with the provided object, making its
+ * keys available for all renderings.
+ *
+ * Keys defined by _object_ gets "protected", which means that they can not be
+ * overriden by other objects that will eventually enter the context stack.
+ *
+ * For example:
+ *
+ *     GRMustacheConfiguration *configuration = [GRMustacheConfiguration defaultConfiguration];
+ *
+ *     // Have the `precious` key defined, and protected, for all template renderings:
+ *     id object = @{ @"precious": @"gold" };
+ *     [configuration importObject:object];
+ *
+ *     // Renders "gold"
+ *     [GRMustacheTemplate renderObject:nil:@{ @"precious": @"lead" } fromString:@"{{precious}}" error:NULL];
+ *
+ * This method is a shortcut. It is equivalent to the following line of code:
+ *
+ *     configuration.baseContext = [configuration.baseContext contextByAddingProtectedObject:object];
+ *
+ * @param object  An object
+ *
+ * @see baseContext
+ * @see extendBaseContextWithObject:
+ * @see extendBaseContextWithTagDelegate:
+ *
+ * @since v6.8
+ */
+- (void)extendBaseContextWithProtectedObject:(id)object AVAILABLE_GRMUSTACHE_VERSION_6_8_AND_LATER;;
+
+/**
+ * Extends the base context of the receiver with a tag delegate, making it aware
+ * of the rendering of all template tags.
+ *
+ * This method is a shortcut. It is equivalent to the following line of code:
+ *
+ *     configuration.baseContext = [configuration.baseContext contextByAddingTagDelegate:tagDelegate];
+ *
+ * @param tagDelegate  A tag delegate
+ *
+ * @see baseContext
+ * @see extendBaseContextWithObject:
+ * @see extendBaseContextWithProtectedObject:
+ *
+ * @since v6.8
+ */
+- (void)extendBaseContextWithTagDelegate:(id<GRMustacheTagDelegate>)tagDelegate AVAILABLE_GRMUSTACHE_VERSION_6_8_AND_LATER;;
 
 /**
  * The content type of strings rendered by templates.

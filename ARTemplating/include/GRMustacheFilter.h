@@ -1,6 +1,6 @@
 // The MIT License
 // 
-// Copyright (c) 2013 Gwendal Roué
+// Copyright (c) 2014 Gwendal Roué
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -31,13 +31,13 @@
 /**
  * The protocol for implementing GRMustache filters.
  *
+ * **Companion guide:** https://github.com/groue/GRMustache/blob/master/Guides/runtime/filters.md
+ *
  * The responsability of a GRMustacheFilter is to transform a value into
  * another.
  *
  * For example, the tag `{{ uppercase(name) }}` uses a filter object that
  * returns the uppercase version of its input.
- *
- * **Companion guide:** https://github.com/groue/GRMustache/blob/master/Guides/runtime/filters.md
  *
  * @since v4.3
  */

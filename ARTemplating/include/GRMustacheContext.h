@@ -1,6 +1,6 @@
 // The MIT License
 //
-// Copyright (c) 2013 Gwendal Roué
+// Copyright (c) 2014 Gwendal Roué
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,10 +20,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <objc/message.h>
 #import <Foundation/Foundation.h>
 #import "GRMustacheAvailabilityMacros.h"
-#import "GRMustacheTagDelegate.h"
+
+@protocol GRMustacheTagDelegate;
 
 /**
  * The GRMustacheContext represents a Mustache rendering context: it internally
@@ -58,8 +58,8 @@
     id _hiddenContextObject;
     GRMustacheContext *_tagDelegateParent;
     id<GRMustacheTagDelegate> _tagDelegate;
-    GRMustacheContext *_templateOverrideParent;
-    id _templateOverride;
+    GRMustacheContext *_partialOverrideParent;
+    id _partialOverride;
     NSDictionary *_depthsForAncestors;
 }
 
@@ -306,33 +306,46 @@
  * Returns the value stored in the context stack for the given key.
  *
  * If you want the value for an full expression such as @"user.name" or
- * @"uppercase(user.name)", use the valueForMustacheExpression:error: method.
+ * @"uppercase(user.name)", use the hasValue:forMustacheExpression:error:
+ * method.
  *
- * ### Search Pattern for valueForMustacheKey:
+ * ### Search Pattern for valueForMustacheKey
  *
- * When the default implementation of valueForMustacheKey: is invoked on a
- * receiver, the following search pattern is used:
+ * The Mustache value of any object for a given key is defined as:
  *
- * 1. Searches the protected context stack for an object whose valueForKey:
- *    method returns a non-nil value.
+ * - the result of `objectForKeyedSubscript:`, if the object responds to this
+ *   method.
+ * - the result of `valueForKey:`, if this method does not throw any
+ *   NSUndefinedKeyException.
+ * - otherwise, nil.
+ *
+ * In this method, the following search pattern is used:
+ *
+ * 1. Searches the protected context stack for an object that has a non-nil
+ *    Mustache value for the key.
  *
  * 2. Otherwise (irrelevant protected context stack), search the context stack
- *    for an object whose valueForKey: method returns a non-nil value, or for an
+ *    for an object that has a non-nil Mustache value for the key, or for an
  *    initialized managed property (managed properties are properties defined by
  *    GRMustacheContext subclasses as @dynamic).
  *
  * 3. Otherwise (irrelevant protected context stack, irrelevant regular context
- *    stack, no initialized managed property), performs a regular call to
- *    `valueForKey:` on the receiver, so that methods defined by subclasses can
- *    provide default values.
+ *    stack, no initialized managed property), fetches the Mustache value on the
+ *    receiver, so that your `GRMustacheContext` subclass can provide default
+ *    values. This value is returned, if non-nil.
  *
  * 4. If none of the above situations occurs, returns the result of
- *    valueForUndefinedMustacheKey:.
+ *    `valueForUndefinedMustacheKey:`.
  *
- * **Companion guide:** https://github.com/groue/GRMustache/blob/master/Guides/view_model.md
+ * **Companion guides:** https://github.com/groue/GRMustache/blob/master/Guides/runtime.md,
+ * https://github.com/groue/GRMustache/blob/master/Guides/view_model.md
+ *
+ * @param key  a key such as @"name"
+ *
+ * @return The value found in the context stack for the given key.
  *
  * @see valueForUndefinedMustacheKey:
- * @see valueForMustacheExpression:error:
+ * @see hasValue:forMustacheExpression:error:
  *
  * @since v6.6
  */
@@ -346,26 +359,56 @@
  *
  * **Companion guide:** https://github.com/groue/GRMustache/blob/master/Guides/view_model.md
  *
+ * @param key  a key such as @"name"
+ *
+ * @return The value for the given key.
+ *
  * @see valueForMustacheKey:
- * @see valueForMustacheExpression:error:
+ * @see hasValue:forMustacheExpression:error:
  *
  * @since v6.7
  */
 - (id)valueForUndefinedMustacheKey:(NSString *)key AVAILABLE_GRMUSTACHE_VERSION_6_7_AND_LATER;
 
 /**
- * Evaluate the expression in the receiver context.
+ * Evaluates an expression such as @"name", or @"uppercase(user.name)".
  *
- * This method can evaluate complex expressions such as @"user.name" or
- * @"uppercase(user.name)".
+ * This method is deprecated. You should use the
+ * hasValue:forMustacheExpression:error: method instead.
  *
  * **Companion guide:** https://github.com/groue/GRMustache/blob/master/Guides/view_model.md
  *
- * @see valueForUndefinedMustacheKey:
- * @see valueForMustacheExpression:error:
+ * @param expression  An expression such as @"name", @"user.name", or
+ *                    @"uppercase(user.name)".
+ * @param error       If there is an error computing the value, upon return
+ *                    contains an NSError object that describes the problem.
+ *
+ * @return The computed value
+ *
+ * @see hasValue:forMustacheExpression:error:
  *
  * @since v6.6
+ * @deprecated v6.8
  */
-- (id)valueForMustacheExpression:(NSString *)expression error:(NSError **)error AVAILABLE_GRMUSTACHE_VERSION_6_6_AND_LATER;
+- (id)valueForMustacheExpression:(NSString *)expression error:(NSError **)error AVAILABLE_GRMUSTACHE_VERSION_6_6_AND_LATER_BUT_DEPRECATED_IN_GRMUSTACHE_VERSION_6_8;
+
+/**
+ * Evaluates an expression such as @"name", or @"uppercase(user.name)".
+ *
+ * **Companion guide:** https://github.com/groue/GRMustache/blob/master/Guides/view_model.md
+ *
+ * @param value       Upon return contains the value of the expression.
+ * @param expression  An expression.
+ * @param error       If there is an error computing the value, upon return
+ *                    contains an NSError object that describes the problem.
+ *
+ * @return YES if the value could be computed.
+ *
+ * @see valueForMustacheKey:
+ * @see valueForUndefinedMustacheKey:
+ *
+ * @since v6.8
+ */
+- (BOOL)hasValue:(id *)value forMustacheExpression:(NSString *)expression error:(NSError **)error AVAILABLE_GRMUSTACHE_VERSION_6_8_AND_LATER;
 
 @end

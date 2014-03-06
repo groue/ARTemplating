@@ -1,6 +1,6 @@
 // The MIT License
 // 
-// Copyright (c) 2013 Gwendal Roué
+// Copyright (c) 2014 Gwendal Roué
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -26,7 +26,6 @@
 @protocol GRMustacheRendering;
 @class GRMustacheTag;
 @class GRMustacheContext;
-@class GRMustacheTemplateRepository;
 
 /**
  * A C struct that hold GRMustache version information
@@ -157,6 +156,7 @@ typedef struct {
 #import "GRMustacheFilter.h"
 #import "GRMustacheError.h"
 #import "GRMustacheVersion.h"
+#import "GRMustacheContentType.h"
 #import "GRMustacheContext.h"
 #import "GRMustacheRendering.h"
 #import "GRMustacheTag.h"
