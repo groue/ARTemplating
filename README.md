@@ -32,15 +32,15 @@ and data structures.
 
 -- [Alex Reid](https://github.com/AlexJReid)
 
-Updating to GRMustache v6.9.2 vastly improved the native performances.
+Updating to GRMustache v7.0.0 vastly improved the native performances.
 
-Rendering the example from http://mustache.github.io/#demo on an iPhone 4
+Rendering the example from http://mustache.github.io/#demo on an iPhone 4:
 
-- JavaScript in WebView: 1000 renderings takes about 2.1 second
-- GRMustache in native view controller: 1000 renderings takes about 2.6 seconds
+- JavaScript in WebView: 1000 renderings takes about 2.1 second.
+- GRMustache in native view controller: 1000 renderings takes about 2.1 second.
 
-OK, native engine is still behind JS engine.
+Native engine is on par with JS engine.
 
-It also provides services unknown to most Mustache implementations. Check out the [FAQ](https://github.com/groue/GRMustache#faq).
+It also provides services unknown to most Mustache implementations.
 
 -- [Gwendal Roué](https://github.com/groue)

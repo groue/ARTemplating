@@ -22,7 +22,7 @@
 		28FD2C12174E5E7C00B09346 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 28FD2C11174E5E7C00B09346 /* index.html */; };
 		28FD2C14174E5ED800B09346 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 28FD2C13174E5ED800B09346 /* style.css */; };
 		28FD2C16174E5F7900B09346 /* mustache.js in Sources */ = {isa = PBXBuildFile; fileRef = 28FD2C15174E5F7900B09346 /* mustache.js */; };
-		28FD2C20174E686700B09346 /* libGRMustache6-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD2C1F174E686700B09346 /* libGRMustache6-iOS.a */; };
+		28FD2C20174E686700B09346 /* libGRMustache7-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD2C1F174E686700B09346 /* libGRMustache7-iOS.a */; };
 		28FD2C25174E68F600B09346 /* ARNativeTemplateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FD2C23174E68F600B09346 /* ARNativeTemplateViewController.m */; };
 		28FD2C26174E68F600B09346 /* ARNativeTemplateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28FD2C24174E68F600B09346 /* ARNativeTemplateViewController.xib */; };
 /* End PBXBuildFile section */
@@ -48,7 +48,7 @@
 		28FD2C11174E5E7C00B09346 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = ARTemplating/web/index.html; sourceTree = "<group>"; };
 		28FD2C13174E5ED800B09346 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = style.css; path = ARTemplating/web/style.css; sourceTree = "<group>"; };
 		28FD2C15174E5F7900B09346 /* mustache.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = mustache.js; path = ARTemplating/web/mustache.js; sourceTree = "<group>"; };
-		28FD2C1F174E686700B09346 /* libGRMustache6-iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGRMustache6-iOS.a"; sourceTree = "<group>"; };
+		28FD2C1F174E686700B09346 /* libGRMustache7-iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGRMustache7-iOS.a"; sourceTree = "<group>"; };
 		28FD2C22174E68F600B09346 /* ARNativeTemplateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARNativeTemplateViewController.h; sourceTree = "<group>"; };
 		28FD2C23174E68F600B09346 /* ARNativeTemplateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARNativeTemplateViewController.m; sourceTree = "<group>"; };
 		28FD2C24174E68F600B09346 /* ARNativeTemplateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARNativeTemplateViewController.xib; sourceTree = "<group>"; };
@@ -77,7 +77,7 @@
 				28FD2BEC174E5DB500B09346 /* UIKit.framework in Frameworks */,
 				28FD2BEE174E5DB500B09346 /* Foundation.framework in Frameworks */,
 				28FD2BF0174E5DB500B09346 /* CoreGraphics.framework in Frameworks */,
-				28FD2C20174E686700B09346 /* libGRMustache6-iOS.a in Frameworks */,
+				28FD2C20174E686700B09346 /* libGRMustache7-iOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,7 +87,7 @@
 		28FD2BDC174E5DB500B09346 = {
 			isa = PBXGroup;
 			children = (
-				28FD2C1F174E686700B09346 /* libGRMustache6-iOS.a */,
+				28FD2C1F174E686700B09346 /* libGRMustache7-iOS.a */,
 				28FD2C15174E5F7900B09346 /* mustache.js */,
 				28FD2C13174E5ED800B09346 /* style.css */,
 				28FD2C11174E5E7C00B09346 /* index.html */,
